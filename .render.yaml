@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: DisasterReporting
+    env: python
+    buildCommand: |
+      cd disaster_frontend && npm install && npm run build
+      cd ../disaster_backend && pip install -r requirements.txt
+    startCommand: ./start.sh
+    disk:
+      mountPath: /data
+      sizeGB: 1
